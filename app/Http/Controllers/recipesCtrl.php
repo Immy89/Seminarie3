@@ -32,11 +32,13 @@ class recipesCtrl extends Controller
             'id'            =>  'required|integer'
         ]);
 
+        $recipeId = $request->get('id');
+
         if (Auth::check())
         {
             $comment = new Comment();
             $comment->comment = $request->get('kommentar');
-            $comment->recipeId = $request->get('id');
+            $comment->recipeId = $recipeId;
             $comment->userId = Auth::user()->getAuthIdentifier();
 
             $comment->save();
