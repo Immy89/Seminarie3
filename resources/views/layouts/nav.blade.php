@@ -30,12 +30,18 @@
             <a class="button" href="{{ route('Januari2018') }}">Kalender</a>
         </li>
         <li class="dropdownRight">
-            <a class="button" href="{{ route('LoggaIn_Registrera') }}">Logga in</a>
-            <ul class="dropdown-content">
-                <li class="dropdownInside">
-                    <a href="LoggaUt.php">Logga ut</a>
-                </li>
-            </ul>
+            @if(Auth::check())
+                <div class="alert alert-danger success-block">
+                    <span class="button">{{ Auth::user()->username }}</span>
+                    <ul class="dropdown-content">
+                        <li class="dropdownInside">
+                            <a href="{{ url('/logout') }}">Logga ut</a>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <a class="button" href="{{ url('/login') }}">Logga in</a>
+            @endif
         </li>
     </ul>
 </div>

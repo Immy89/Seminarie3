@@ -1,32 +1,25 @@
 #ram {
-    min-height: 350px;
-    height: fit-content;
-    overflow: hidden;
-}
-
-#loggaIn {
-    display: inline;
-    float: left;
-    width: 50%;
-    height: fit-content;
-}
-
-#registrera {
-    display: inline;
-    float: left;
-    width: 50%;
-    height: fit-content;
-}
-
-form {
     background-color: rgb(224, 198, 185);
     border-radius: 10px;
     margin: 0% 1%;
+    min-height: 320px;
+    height: fit-content;
+    display: inline;
+    float: left;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .rubrik {
     font-size: 22px;
     padding: 1.5% 2%;
+    cursor: default;
+}
+
+.meddelande{
+    padding: 0% 2% 0% 2%;
+    color: red;
 }
 
 /* Full-width inputs */
@@ -46,21 +39,30 @@ input[placeholder] {
 }
 
 /* Set a style for all buttons */
-button {
-    background-color: rgb(179, 152, 135);
+.btn {
+    display: inline-block;
     padding: 14px 20px;
     margin: 8px 0;
-    border-radius: 6px;
-    border: none;
-    /* box-shadow: 4px rgb(122, 96, 81); */
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    background-color: rgb(179, 152, 135);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 8px rgb(110, 95, 85);
     width: 100%;
     font-family: "Comic sans MS";
 }
-
+  
 /* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.7;
+.btn:hover {background-color: rgb(163, 136, 119);}
+
+/* Extra style for the cancel button (red) */
+.btn:active {
+    background-color: rgba(163, 136, 119);
+    box-shadow: 0 4px rgb(110, 95, 85);
+    transform: translateY(4px);
 }
 
 /* Extra style for the cancel button (red) */
@@ -69,7 +71,12 @@ button:hover {
     width: auto;
 }
 
-.message {
+p {
+    padding: 0% 2% 2% 2%;
+    cursor: default;
+}
+
+.info {
     font-size: 10px;
     padding-left: 2%;
     color: red;

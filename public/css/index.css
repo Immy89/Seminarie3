@@ -40,6 +40,7 @@ body {
     font-size: 45px;
     color: rgb(180, 145, 122);
     margin-bottom: 10px;
+    cursor: default;
 }
 
 #slogan {
@@ -48,6 +49,7 @@ body {
     font-size: 18px;
     color: rgb(180, 145, 122);
     margin-bottom: 3px;
+    cursor: default;
 }
 
 h4 img {
@@ -120,11 +122,11 @@ h4 img {
     position: relative;
     display: block;
     padding: 2%;
+    cursor: pointer;
 }
 
 .dropdownInside a {
     text-decoration: none;
-    cursor: pointer;
     color: white;
     float: left;
     width: 100%;

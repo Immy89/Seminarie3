@@ -19,23 +19,37 @@
     </div>
     <div id="recensioner">
         <h3>Recensioner:</h3>
-        <div id="SkapaRecensioner">
-            <form action="SkapaRecension.php" method="POST">
-                <input type="hidden" name="receptId" value="1">
-                <input type="hidden" name="relocateTo" value="index.php?content=Recipes/Köttbullar_med_Mos.php">
-                <div class="cont">
+        @if(Auth::check())
+            <div id="SkapaRecensioner">
+                @if($message = Session::get('error'))
+                    <div class="alert alert-danger alert-block">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ url('/recipe/post_comment') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{ $id }}" />
                     <textarea placeholder="Kommentar" name="kommentar" required></textarea>
-                    <button type="submit">Publicera</button>
-                </div>
-            </form>
-        </div>
+                    <input type="submit" class="btn" value="Publicera">
+                </form>
+            </div>
+        @endif
         <div id="InlästaRecensioner">
             @isset($comments)
                 <hr>
             @endisset
             @foreach ($comments as $comment)
                 <div id="commentfield">
-                    <span id="uname">{{ $comment->username }}:</span>
+                    <span id="uname">{{ $comment->user->username }}:</span>
                     <span id="comment">{{ $comment->comment }}</span>
                 </div>
                 <hr>

@@ -10,5 +10,3 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-
-/database/migrations/2018_10_17_142356_add_user.php
