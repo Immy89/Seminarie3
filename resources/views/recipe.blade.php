@@ -51,6 +51,15 @@
                 <div id="commentfield">
                     <span id="uname">{{ $comment->user->username }}:</span>
                     <span id="comment">{{ $comment->comment }}</span>
+                    <span id="deleteButton">
+                        @if(Auth::id() === $comment->user->id)
+                            <form action="{{ url('/recipe/delete_comment') }}" method="POST">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="cid" value="{{ $comment->commentId }}"/>
+                                <input type="submit" class="delbtn" value="Delete"/>
+                            </form>
+                        @endif
+                    </span>
                 </div>
                 <hr>
             @endforeach
